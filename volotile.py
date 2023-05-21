@@ -11,6 +11,17 @@ def solve(N, Q, pairs, A):
             indexdic[A[i]] = [i]
     print(indexdic)
     for pair in pairs:
+        dic[pair] = []
+        i = 0
+        j = 0
+        while True:
+            if indexdic[pair[0]][i] < indexdic[pair[1]][j]:
+                dic[pair].append(pair[0])
+                i +=1
+            else:
+                dic[pair].append(pair[1])
+                j+=1
+                
         # pdic[pair] = []
         # p1len = len(dic[pair[0]])
         # p2len = len(dic[pair[1]])

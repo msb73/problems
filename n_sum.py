@@ -1,6 +1,6 @@
 import time
 ls = [1,2,3,4,6]
-value =500
+value =50
 ans = []
 ls1 = [[[i], v] for i,v in enumerate(ls) ]
 for i in range(len(ls1)): # main iterate through ls
