@@ -1,12 +1,14 @@
 ls = [1, 2, 3, 5]
 ans = 10
+count = 0
 def func1(arr, subls, index, adder):
 	for i in range(index, len(ls)):
 		if adder + ls[i] == ans:
 			arr.append(subls + [ls[i]])
-			break
+			# return subls + [ls[i]]
+			return None
 		if adder + ls[i] > ans:
-			break
+			return None
 		func1(arr, subls + [ls[i]], i, adder + ls[i] )
 	return arr
 
