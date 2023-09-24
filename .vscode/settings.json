@@ -1,8 +1,0 @@
-{
-    "editor.detectIndentation": false,
-	"editor.insertSpaces": false,
-	"[python]": {
-		"editor.defaultFormatter": "ms-python.python"
-	},
-	"python.formatting.provider": "none"
-}

@@ -5,19 +5,9 @@
 # validated = {c:r} # as we goes with cols
 # 
 n = int(input())
+# n = 13
 
-import time
-i_tups = (
-    (-1,-1),
-    (-1,0),
-    (-1,1),
-    (1,-1),
-    (0,-1),
-    (0,1),
-    (1,1),
-    (1,0)
-    
-)
+
 counter = 0
 dic = {
     1:set(),
@@ -27,6 +17,7 @@ dic = {
 }
 def validate(dic,r, c):   # return T or F for each i_tup for False important, T not
     # print(dic)
+    
     global counter
     if c+r in dic[1]:
         return False
@@ -54,6 +45,12 @@ def dic_sub_modification(r,c, dic):
     dic[3].remove(r)
     dic[4].remove(c)
 def nqueen(n:int, marked, rows, dic) -> int:
+    if n == 0:
+    	return []
+    if n == 1:
+    	return [["Q"]]
+    if n == 2:
+    	return [["Q."],[".."]]
     c = 0
     exempted = {}  #2 {}
     while c < n:
@@ -68,6 +65,9 @@ def nqueen(n:int, marked, rows, dic) -> int:
         else:
             # print(exempted)
             prev_c = c-1
+            # print(marked)
+            if not  marked[prev_c]:
+                return marked
             prev_r = marked.pop(prev_c)
             dic_sub_modification(prev_r, prev_c, dic)#exempted[(prev_c, prev_r)] = True  exempted.append((prev_r, prev_c))
             exempted[(prev_c, prev_r)] = True
@@ -98,6 +98,9 @@ rows = list(range(n))
 rows[0], rows[1], rows[2] = rows[2] ,rows[0], rows[1]
 marked = {}
 marked = nqueen(n, marked, rows,dic)
-print(f'{len(marked)} = *{marked}')
+ls = [[ for i in range(n)] for _ in range(n)]
+
+for i , j in marked.items():
+    ls[i] [j] = 1
 
 print(counter)
